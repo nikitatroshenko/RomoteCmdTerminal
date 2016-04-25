@@ -142,10 +142,13 @@ public class ServerThread extends Thread {
 
     private CommandResult executeShellCommand(String command) throws IOException {
         StringBuilder sb = new StringBuilder();
-        Process cmd = Runtime.getRuntime().exec(command);
+        Process cmd = Runtime.getRuntime().exec(String.format("cmd /c %s", command));
         BufferedReader br = new BufferedReader(new InputStreamReader(cmd.getInputStream()));
         String outputLine;
 
+        try {
+            cmd.waitFor();
+        } catch (InterruptedException ignored) { }
         while ((outputLine = br.readLine()) != null) {
             sb.append(outputLine);
         }
