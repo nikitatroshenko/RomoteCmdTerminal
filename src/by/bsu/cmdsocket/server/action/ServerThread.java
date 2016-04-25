@@ -12,7 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Created by Никита on 24.04.2016.
+ * Created by пїЅпїЅпїЅпїЅпїЅпїЅ on 24.04.2016.
  */
 public class ServerThread extends Thread {
 
@@ -25,8 +25,8 @@ public class ServerThread extends Thread {
 
     public ServerThread(Socket socket) throws CmdTerminalSocketException {
         try {
-            ois = new ObjectInputStream(socket.getInputStream());
             oos = new ObjectOutputStream(socket.getOutputStream());
+            ois = new ObjectInputStream(socket.getInputStream());
             address = socket.getInetAddress();
         } catch (IOException e) {
             throw new CmdTerminalSocketException(e);
