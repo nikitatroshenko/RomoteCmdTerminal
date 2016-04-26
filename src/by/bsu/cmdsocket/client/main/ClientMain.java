@@ -42,11 +42,11 @@ public class ClientMain {
             MessageResponse response = (MessageResponse) is.readObject();
             printResponse(response);
             
-            os.writeObject(new CommandMessageRequest(clientName, "dir"));
+            os.writeObject(new CommandMessageRequest(clientName, "echo Hello"));
             response = (MessageResponse) is.readObject();
             printResponse(response);
             
-            os.writeObject(new CommandMessageRequest(clientName, "cls"));
+            os.writeObject(new CommandMessageRequest(clientName, "dir"));
             response = (MessageResponse) is.readObject();
             printResponse(response);
             
