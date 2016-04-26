@@ -87,7 +87,7 @@ public class ServerThread extends Thread {
             } else {
                 ConnectionsKeeper.INSTANCE.addServerThreadForUser(clientName, this);
                 response = new ConnectMessageResponse(ResponseInfo.OK);
-                LOGGER.log(Level.INFO, "User \"{0}\" is connected [host = {1}]",
+                LOGGER.log(Level.INFO, "User \"{0}\" has connected [host = {1}]",
                         new Object[]{clientName, address.getHostName()});
                 result = true;
             }
@@ -108,7 +108,7 @@ public class ServerThread extends Thread {
         } catch (IOException ex) {
             LOGGER.log(Level.SEVERE, "Something wrong with streams closing", ex);
         } finally {
-            LOGGER.log(Level.INFO, "\"{0}\" is disconnected", address.getHostName());
+            LOGGER.log(Level.INFO, "\"{0}\" has disconnected", address.getHostName());
             this.interrupt();
         }
     }
