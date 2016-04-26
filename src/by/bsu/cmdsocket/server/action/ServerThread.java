@@ -150,7 +150,7 @@ public class ServerThread extends Thread {
             cmd.waitFor();
         } catch (InterruptedException ignored) { }
         while ((outputLine = br.readLine()) != null) {
-            sb.append(outputLine);
+            sb.append(outputLine + '\n');
         }
 
         return new CommandResult(sb.toString(), cmd.exitValue());
